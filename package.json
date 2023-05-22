@@ -1,0 +1,37 @@
+{
+  "name": "cap-northwind-destination",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.1.1",
+    "@sap/cds": "^6",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "sqlite3": "^5"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "cds": {
+    "requires": {
+      "products": {
+        "kind": "odata-v2",
+        "model": "srv/external/products",
+        "[development]": {
+          "credentials": {
+            "destination": "northwind_products"
+          }
+        },
+        "[production]": {
+          "credentials": {
+            "destination": "northwind_products"
+          }
+        }
+      }
+    }
+  }
+}
